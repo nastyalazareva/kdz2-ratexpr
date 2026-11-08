@@ -52,6 +52,10 @@ namespace ratexpr{
         std::int64_t nod = std::gcd(chisl, zn);
         chisl = chisl / nod;
         zn = zn / nod;
+        if (zn < 0){
+            zn = zn * (-1);
+            chisl = chisl * (-1);
+        }
         return *this;
     }
     Fraction& Fraction::operator+=(std::uint32_t k){
@@ -156,18 +160,9 @@ namespace ratexpr{
         return h;
     }
     std::ostream& operator<<(std::ostream& os, const Fraction& f){
-        std::int64_t z, c;
-        if (f.zn < 0){
-            z = f.zn * (-1);
-            c = f.chisl * (-1);
-        }
-        else {
-            z = f.zn;
-            c = f.chisl;
-        }
         if (f.zn == 1){
-            return os << c;
+            return os << f.chisl;
         }
-        return os << c << "/" << z;
+        return os << f.chisl << "/" << f.zn;
     }
 }
