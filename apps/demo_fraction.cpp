@@ -18,6 +18,7 @@ int main(){
     acc += Fraction(1, 2);
     acc += Fraction(1, 3);
     acc *= 6u;
+    std::cout << acc << std::endl;
     try {
         std::cout << Fraction(1, 0);
     } 
@@ -30,5 +31,6 @@ int main(){
     catch (const std::invalid_argument& e){
         std::cerr << e.what() << std::endl;
     }
+    std::cout << Fraction(1, 2) * -1 << std::endl;
     return 0;
 }

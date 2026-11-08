@@ -11,28 +11,28 @@ class Expression {
 };
 
 std::ostream& operator<<(std::ostream& os, const Expression& e);
-class Const : public Expression {
-    Fraction n;
-    public:
-        explicit Const(const Fraction& value);
-        Fraction evaluate() const override;
-        void print(std::ostream& os) const override;
-};
+    class Const : public Expression {
+        Fraction n;
+        public:
+            explicit Const(const Fraction& value);
+            Fraction evaluate() const override;
+            void print(std::ostream& os) const override;
+    };
 
-class Negative : public Expression {
-    std::unique_ptr<Expression> val;
-    public:
-        explicit Negative(std::unique_ptr<Expression> operand);
-        Fraction evaluate() const override;
-        void print(std::ostream& os) const override;
-};
+    class Negative : public Expression {
+        std::unique_ptr<Expression> val;
+        public:
+            explicit Negative(std::unique_ptr<Expression> operand);
+            Fraction evaluate() const override;
+            void print(std::ostream& os) const override;
+    };
 
-class BinaryExpression : public Expression {
-    public:
-        BinaryExpression(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs);
-    protected:
-        std::unique_ptr<Expression> left, right;
-};
+    class BinaryExpression : public Expression {
+        public:
+            BinaryExpression(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs);
+        protected:
+            std::unique_ptr<Expression> left, right;
+    };
 
     class Add: public BinaryExpression {
         public:

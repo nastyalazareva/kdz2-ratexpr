@@ -6,7 +6,7 @@ int main(){
     std::make_unique<Const>(Fraction(1, 3))),
     std::make_unique<Sub>(std::make_unique<Const>(Fraction(3)), 
     std::make_unique<Const>(Fraction(1, 4))));
-    std::cout << e->evaluate() << std::endl;
-    auto b = std::make_unique<Negative>(std::make_unique<Const>(Fraction(2, 3)));
-    std::cout << b->evaluate();
+    auto b = std::make_unique<Negative>(std::make_unique<Div>(std::make_unique<Const>(Fraction(2)), std::make_unique<Const>(Fraction(3))));
+    std::cout << *e << " = " << e->evaluate() << '\n';
+    std::cout << *b << " = " << b->evaluate() << '\n';
 }

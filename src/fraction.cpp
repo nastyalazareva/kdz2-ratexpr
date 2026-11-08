@@ -46,9 +46,10 @@ namespace ratexpr{
     Fraction& Fraction::operator/=(const Fraction& o){
         if (o.chisl == 0){
             throw std::invalid_argument("Division by zero");
-        }
+        } 
+        std::int64_t c = o.chisl;
         chisl *= o.zn;
-        zn *= o.chisl;
+        zn *= c;
         std::int64_t nod = std::gcd(chisl, zn);
         chisl = chisl / nod;
         zn = zn / nod;

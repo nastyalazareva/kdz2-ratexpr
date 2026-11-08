@@ -34,7 +34,7 @@ namespace ratexpr{
         right = std::move(rhs);
     }
 
-    Add::Add(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs): BinaryExpression(std::move(lhs), std::move(rhs)){};
+    Add::Add(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs): BinaryExpression(std::move(lhs), std::move(rhs)){}
     void Add::print(std::ostream& os) const{
         os << "(" << *left << " + " << *right << ")";
     }
@@ -42,7 +42,7 @@ namespace ratexpr{
         return left->evaluate() + right->evaluate();
     } 
 
-    Sub::Sub(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs): BinaryExpression(std::move(lhs), std::move(rhs)){};
+    Sub::Sub(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs): BinaryExpression(std::move(lhs), std::move(rhs)){}
     void Sub::print(std::ostream& os) const{
         os << "(" << *left << " - " << *right << ")";
     }
@@ -50,7 +50,7 @@ namespace ratexpr{
         return left->evaluate() - right->evaluate();
     } 
 
-    Mul::Mul(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs): BinaryExpression(std::move(lhs), std::move(rhs)){};
+    Mul::Mul(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs): BinaryExpression(std::move(lhs), std::move(rhs)){}
     void Mul::print(std::ostream& os) const{
         os << "(" << *left << " * " << *right << ")";
     }
@@ -58,7 +58,7 @@ namespace ratexpr{
         return left->evaluate() * right->evaluate();
     } 
 
-    Div::Div(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs): BinaryExpression(std::move(lhs), std::move(rhs)){};
+    Div::Div(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs): BinaryExpression(std::move(lhs), std::move(rhs)){}
     void Div::print(std::ostream& os) const{
         os << "(" << *left << " / " << *right << ")";
     }
